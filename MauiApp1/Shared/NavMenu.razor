@@ -1,0 +1,44 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="">MauiApp1</a>
+		<button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+	<nav class="flex-column">
+		<div class="nav-item px-3">
+			<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+				<span class="oi oi-home" aria-hidden="true"></span> Home
+			</NavLink>
+		</div>
+		<div class="nav-item px-3">
+			<NavLink class="nav-link" href="counter">
+				<span class="oi oi-plus" aria-hidden="true"></span> Counter
+			</NavLink>
+		</div>
+		<div class="nav-item px-3">
+			<NavLink class="nav-link" href="fetchdata">
+				<span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+			</NavLink>
+		</div>
+			<div class="nav-item px-3">
+			<NavLink class="nav-link" href="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+				<span class="oi oi-list-rich" aria-hidden="true"></span> web view
+			</NavLink>
+		</div>
+	</nav>
+</div>
+
+@code {
+	private bool collapseNavMenu = true;
+
+	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+	private void ToggleNavMenu()
+	{
+		collapseNavMenu = !collapseNavMenu;
+	}
+}
