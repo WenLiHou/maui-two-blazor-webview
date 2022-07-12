@@ -8,18 +8,27 @@ public partial class WebViewPage : ContentPage
     {
         InitializeComponent();
 
-        //webView.Source = uri;
-        rootComponent.Parameters = new Dictionary<string, object>
-        {
-            {"uri",uri }
-        };
+        webView.Source = uri;
+        //rootComponent.Parameters = new Dictionary<string, object>
+        //{
+        //    {"uri",uri }
+        //};
     }
 
-    private void BlazorWebView_UrlLoading(object sender, Microsoft.AspNetCore.Components.WebView.UrlLoadingEventArgs e)
+    //private void BlazorWebView_UrlLoading(object sender, Microsoft.AspNetCore.Components.WebView.UrlLoadingEventArgs e)
+    //{
+    //    if (e.Url.Host != "0.0.0.0")
+    //    {
+    //        e.UrlLoadingStrategy = UrlLoadingStrategy.OpenInWebView;
+    //    }
+    //}
+
+    private void webView_Navigating(object sender, WebNavigatingEventArgs e)
     {
-        if (e.Url.Host != "0.0.0.0")
+        if (!e.Url.StartsWith("http://") && !e.Url.StartsWith("https://"))
         {
-            e.UrlLoadingStrategy = UrlLoadingStrategy.OpenInWebView;
+            //或者打开外链
+            e.Cancel = true;
         }
     }
 }

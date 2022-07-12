@@ -4,9 +4,11 @@
              x:Class="MauiApp1.WebViewPage"
               xmlns:local="clr-namespace:MauiApp1"
              Title="WebViewPage">
-    <BlazorWebView HostPage="wwwroot\index.html" UrlLoading="BlazorWebView_UrlLoading">
+    <!--<BlazorWebView HostPage="wwwroot\index.html" UrlLoading="BlazorWebView_UrlLoading">
         <BlazorWebView.RootComponents>
             <RootComponent x:Name="rootComponent" Selector="#app" ComponentType="{x:Type local:WebView}" />
         </BlazorWebView.RootComponents>
-    </BlazorWebView>
+    </BlazorWebView>-->
+    <WebView x:Name="webView" Navigating="webView_Navigating" >
+    </WebView>
 </ContentPage>
